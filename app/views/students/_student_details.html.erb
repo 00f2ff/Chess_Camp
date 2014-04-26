@@ -1,0 +1,21 @@
+<!--require 'rubygems'
+require 'chronic' 
+require 'time_date_helpers'
+ where do i put these things -->
+
+<h3>Student Details</h3><br />
+<strong>Name:&nbsp;&nbsp;</strong>
+	<%= @student.proper_name %><br /><br />
+
+<!-- use humanize_date method -->
+<strong>Date of Birth:&nbsp;&nbsp;</strong>
+	<%= @student.date_of_birth %><br /><br /> <!-- .humanize_date -->
+
+<strong>Rating:&nbsp;&nbsp;</strong>
+	<%= @student.rating %><br /><br />
+
+<strong>Active?&nbsp;&nbsp;</strong>
+  <%= @student.active ? "Yes" : "No" %><br /><br />
+
+<strong>Emergency Contact:&nbsp;&nbsp;</strong>
+	<%= link_to "#{@family.parent_first_name} #{@family.family_name}", family_path(@family) %><br /><br />
