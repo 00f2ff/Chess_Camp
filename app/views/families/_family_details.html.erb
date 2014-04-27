@@ -1,0 +1,15 @@
+<h3>Family Details</h3><br />
+<strong>Name:&nbsp;&nbsp;</strong>
+	<%= "#{@family.family_name} #{@family.parent_first_name}" %><br /><br />
+
+<strong>Phone:&nbsp;&nbsp;</strong>
+	<%= @family.phone %><br /><br />
+
+<strong>Email:&nbsp;&nbsp;</strong>
+	<%= @family.email %><br /><br />
+
+<strong>Active?&nbsp;&nbsp;</strong>
+  <%= @family.active ? "Yes" : "No" %><br /><br />
+
+<%= link_to "Edit this family", edit_family_path(@family), class: "button tiny radius" %>&nbsp;&nbsp;
+<%= link_to 'Destroy family', family_path(@family), data: { confirm: 'Are you sure you want to delete this family?' }, method: :delete, class: "button tiny radius alert" %>
