@@ -9,7 +9,7 @@
 		<th></th> <!-- why is last one? -->
 	</tr>
 
-<% @active_students.each do |student| %>
+<% @activeStudents.each do |student| %>
 	<tr>
 		<td><%= link_to "#{student.name}", student_path(student) %></td>
 		<td><%= student.age %></td>
@@ -20,5 +20,5 @@
 </table>
 <!-- Add the pagination using will_paginate gem -->
 <span class="paginate">
-<%= will_paginate @active_students, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+<%= will_paginate @activeStudents, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
 </span>
