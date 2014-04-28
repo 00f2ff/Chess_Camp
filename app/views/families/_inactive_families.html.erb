@@ -7,7 +7,7 @@
 	<div class="panel clearfix"> <!-- unnecessary if above? -->
 		<h5>Inactive Families</h5>
 		<ul class="side-nav">
-			<%= @inactiveFamilies.each do |family| %>
+			<% @inactiveFamilies.each do |family| %>
 				<li><%= link_to "#{family.family_name}", family_path(family) %></li>
 			<% end %>
 		</ul>

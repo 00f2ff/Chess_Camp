@@ -10,10 +10,12 @@ class InstructorsController < ApplicationController
   def show
     @upcoming_camps = @instructor.camps.upcoming.chronological
     @past_camps = @instructor.camps.past.chronological
+    @user = @instructor.user
   end
 
   def new
     @instructor = Instructor.new
+    @instructor.user.build
   end
 
   def edit
@@ -49,6 +51,6 @@ class InstructorsController < ApplicationController
     end
 
     def instructor_params
-      params.require(:instructor).permit(:first_name, :last_name, :bio, :email, :phone, :active)
+      params.require(:instructor).permit(:first_name, :last_name, :bio, :email, :phone, :active, user_attributes: [:username, :password, :password_confirmation, :active])
     end
 end
