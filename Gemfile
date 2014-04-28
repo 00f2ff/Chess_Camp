@@ -62,9 +62,6 @@ gem 'cancancan', '1.7.0'
 # font awesome for cool icons
 gem 'font-awesome-sass-rails', '3.0.2.2'
 
-# d3 for data visualizations
-gem 'd3_rails'
-
 # Additional gems that are very useful in Rails development
 group :development do
   gem 'quiet_assets'
