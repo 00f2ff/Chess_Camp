@@ -56,6 +56,15 @@ gem 'bcrypt-ruby', '3.1.5'
 # User nested_form to include user form in instructor
 gem 'nested_form'
 
+# cancancan for authentication
+gem 'cancancan', '1.7.0'
+
+# font awesome for cool icons
+gem 'font-awesome-sass-rails', '3.0.2.2'
+
+# d3 for data visualizations
+gem 'd3_rails'
+
 # Additional gems that are very useful in Rails development
 group :development do
   gem 'quiet_assets'

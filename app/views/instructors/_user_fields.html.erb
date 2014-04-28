@@ -2,4 +2,4 @@
 <%= f.input :password %>
 <%= f.input :password_confirmation %>	
 <%= f.input :active %>
-<%= f.input :role, :collection => User::ROLES, :prompt => true %>
+<%= f.input :role, :collection => [['Administrator','admin'], ['Instructor','instructor']], :prompt => true %>
