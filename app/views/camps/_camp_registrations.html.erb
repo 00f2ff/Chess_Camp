@@ -1,0 +1,20 @@
+<% unless @registrations.empty? %>
+	<div class="panel clearfix">
+		<h5>Registrations</h5>
+		<ul class="side-nav">
+			<% @registrations.each do |r| %>
+				<li><%= link_to r.student.name, student_path(r.student) %></li>
+			<% end %>
+		</ul>
+	</div>
+
+<% else %>
+	<div class="panel clearfix">
+		<h5>No Registrations</h5>
+	</div>
+<% end %>
+<br />
+
+<%= link_to(new_registration_path(camp_id: @camp.id), class: 'button tiny radius') do %>
+Add New Registration
+<% end %>
