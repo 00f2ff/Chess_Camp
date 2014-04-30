@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   # authentication method
   #* I haven't tested this yet
   def self.authenticate(username,password)
-    find_by_password(password).try(:authenticate, password)
+    find_by_username(username).try(:authenticate, password)
   end
 
 end
