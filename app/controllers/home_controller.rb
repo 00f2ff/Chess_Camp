@@ -1,4 +1,7 @@
 class HomeController < ApplicationController
+	# check authorization
+  authorize_resource
+  
   def index
   end
 

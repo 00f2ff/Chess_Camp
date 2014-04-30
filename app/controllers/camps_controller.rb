@@ -1,6 +1,8 @@
 class CampsController < ApplicationController
   before_action :set_camp, only: [:show, :edit, :update, :destroy]
-
+  # check authorization
+  authorize_resource
+  
   def index
     @upcoming_camps = Camp.upcoming.active.chronological.paginate(:page => params[:page]).per_page(10)
     @past_camps = Camp.past.chronological.paginate(:page => params[:page]).per_page(10)

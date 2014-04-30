@@ -1,6 +1,8 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
-
+  # check authorization
+  authorize_resource
+  
   def index
     @activeStudents = Student.active.alphabetical.paginate(:page => params[:page]).per_page(10)
     @inactiveStudents = Student.inactive.alphabetical.paginate(:page => params[:page]).per_page(10)

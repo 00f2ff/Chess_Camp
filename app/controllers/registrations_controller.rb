@@ -1,6 +1,8 @@
 class RegistrationsController < ApplicationController
   before_action :set_registration, only: [:edit, :update, :destroy]
-
+  # check authorization
+  authorize_resource
+  
   def new
     @registration = Registration.new
     @camp = @registration.camp

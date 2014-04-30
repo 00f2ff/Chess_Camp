@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :destroy]
-
+  # check authorization
+  authorize_resource
+  
   def new
     @user = User.new
     @instructor = @user.instructor

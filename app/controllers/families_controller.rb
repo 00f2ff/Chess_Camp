@@ -1,6 +1,8 @@
 class FamiliesController < ApplicationController
   before_action :set_family, only: [:show, :edit, :update, :destroy]
-
+  # check authorization
+  authorize_resource
+  
   def index
     @activeFamilies = Family.active.alphabetical.paginate(:page => params[:page]).per_page(10)
     @inactiveFamilies = Family.inactive.alphabetical.paginate(:page => params[:page]).per_page(10)
