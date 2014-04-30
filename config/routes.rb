@@ -20,7 +20,7 @@ ChessCamp::Application.routes.draw do
   get 'home/privacy', to: 'home#privacy', as: :privacy
 
   # session routes
-  get 'instructor/edit' => 'instructors#edit', as: :edit_current_user
+  get 'instructor/edit' => 'user#edit', as: :edit_current_user # what about the instructor id?
   get 'signup' => 'instructors#new', as: :signup
   get 'login' => 'sessions#new', as: :login
   get 'logout' => 'sessions#destroy', as: :logout

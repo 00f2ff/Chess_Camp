@@ -5,6 +5,10 @@ class Ability
     user ||= User.new
     if user.role? :admin
         can :manage, :all
+    elsif user.role? :instructor
+        can :update, Instructor do |instructor|
+            instructor.id == user.instructor_id
+        end
     else
         can :read, :all
     end
