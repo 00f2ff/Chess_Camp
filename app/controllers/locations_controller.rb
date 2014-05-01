@@ -22,7 +22,7 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(location_params)
     if @location.save
-      redirect_to @location, notice: "The location #{@location.name} was added to the system."
+      redirect_to @location, notice: "#{@location.name} location was added to the system." 
     else
       render action: 'new'
     end

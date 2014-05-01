@@ -24,7 +24,7 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
     if @student.save
-      redirect_to @student, notice: "The student #{@student.name} was added to the system."
+      redirect_to @student, notice: "#{@student.proper_name} was added to the system."
     else
       render action: 'new'
     end
@@ -32,7 +32,7 @@ class StudentsController < ApplicationController
 
   def update
     if @student.update(student_params)
-      redirect_to @student, notice: "The student #{@student.name} was revised in the system."
+      redirect_to @student, notice: "#{@student.proper_name} was revised in the system."
     else
       render action: 'edit'
     end
@@ -40,7 +40,7 @@ class StudentsController < ApplicationController
 
   def destroy
     @student.destroy
-    redirect_to students_url, notice: "The student #{@student.name} was removed from the system."
+    redirect_to students_url, notice: "#{@student.proper_name} was removed from the system."
   end
 
   private

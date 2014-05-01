@@ -15,6 +15,6 @@
 <% end %>
 <br />
 
-<%= link_to(new_registration_path(camp_id: @camp.id), class: 'button tiny radius') do %>
+<%= link_to new_registration_path, {:camp_od => @camp.id}, class: 'button tiny radius' do %>
 Add New Registration
 <% end %>

@@ -62,6 +62,9 @@ gem 'cancancan', '1.7.0'
 # font awesome for cool icons
 gem 'font-awesome-sass-rails', '3.0.2.2'
 
+# for datepicker and other pretty formatting things
+gem 'jquery-ui-rails', '4.1.1'
+
 # Additional gems that are very useful in Rails development
 group :development do
   gem 'quiet_assets'

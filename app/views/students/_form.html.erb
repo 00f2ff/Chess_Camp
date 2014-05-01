@@ -3,10 +3,11 @@
 	<h3><%= controller.action_name.capitalize %> Student</h3>
 	<%= f.input :first_name %>
 	<%= f.input :last_name %>
-	<%= f.input :family_id, collection: Family.active.alphabetical, prompt: "Select family..." %>
-	<%= f.input :date_of_birth %>
-	<!-- , as: :bootstrap_datepicker -->
-	<!-- however, I want the mm/dd/yyyy style instead -->
+	<%= f.input :family_id, collection: Family.active.alphabetical, label_method: :family_name, prompt: "Select family..." %>
+	<%= f.input :date_of_birth, label: "Date of Birth", as: :string, :input_html => {:class => "avg datepicker"} %>
+
+	<!-- , prompt: "mm/dd/yyyy" -->
+	<%= f.input :rating %>
 	<%= f.input :active %>
 
 	<div class="form-actions">

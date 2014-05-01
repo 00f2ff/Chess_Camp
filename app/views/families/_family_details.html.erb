@@ -3,7 +3,7 @@
 	<%= "#{@family.family_name} #{@family.parent_first_name}" %><br /><br />
 
 <strong>Phone:&nbsp;&nbsp;</strong>
-	<%= @family.phone %><br /><br />
+	<%= number_to_phone(@family.phone) %><br /><br />
 
 <strong>Email:&nbsp;&nbsp;</strong>
 	<%= @family.email %><br /><br />

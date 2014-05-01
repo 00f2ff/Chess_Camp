@@ -5,7 +5,7 @@ class RegistrationsController < ApplicationController
   
   def new
     @registration = Registration.new
-    @camp = @registration.camp
+    @camp = Camp.find(params[:camp_id])
     @student = @registration.student
   end
 
