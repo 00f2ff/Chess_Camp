@@ -2,4 +2,7 @@
 <%= f.input :password %>
 <%= f.input :password_confirmation %>	
 <%= f.input :active %>
-<%= f.input :role, :collection => [['Administrator','admin'], ['Instructor','instructor']], :prompt => true %>
+<!-- Only admins can change role -->
+<% if can? :create, Instructor %>
+	<%= f.input :role, :collection => [['Administrator','admin'], ['Instructor','instructor']], :prompt => true %>
+<% end %>

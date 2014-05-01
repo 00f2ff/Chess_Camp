@@ -3,9 +3,12 @@
     <!-- MAIN CONTENT GOES HERE -->
     <%= render :partial => "camps", locals: { status: "Upcoming", camps: @upcoming_camps } %>
     <p>&nbsp;</p>
-    <%= render :partial => "camps", locals: { status: "Past", camps: @past_camps } %>
-    <br />
-    <%= link_to "Add a new camp", new_camp_path, class: "button tiny radius" %>
+    <!-- Only admins can see past camps or add new ones -->
+    <% if can? :update, Camp %>
+      <%= render :partial => "camps", locals: { status: "Past", camps: @past_camps } %>
+      <br />
+      <%= link_to "Add a new camp", new_camp_path, class: "button tiny radius" %>
+    <% end %>
   </div>
 
   <div class="small-1 columns">
@@ -14,6 +17,9 @@
 
   <div class="small-4 columns">
     <!-- SIDEBAR CONTENT GOES HERE -->
-    <%= render :partial => "inactive_camps" %>
+    <!-- Only admins can see inactive camps -->
+    <% if can? :update, Camp %>
+      <%= render :partial => "inactive_camps" %>
+    <% end %>
   </div>
 </div>

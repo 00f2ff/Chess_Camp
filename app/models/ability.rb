@@ -11,6 +11,8 @@ class Ability
         end
     else
         can :read, :all
+        #can :read, Camp
+        # how do i allow instructor views?
     end
 
 

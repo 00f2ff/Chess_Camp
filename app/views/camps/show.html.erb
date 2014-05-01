@@ -10,8 +10,12 @@
 
   <div class="small-4 columns">
     <!-- SIDEBAR CONTENT GOES HERE -->
+    <!-- Everyone can see who teaches which camps --> <!--**** I'm changing ability, which might affect this -->
     <%= render partial: 'camp_instructors' %>
-    <%= render partial: 'camp_registrations' %>
+    <!-- Only admins can add or change registrations -->
+    <% if can? :update, Registration %>
+      <%= render partial: 'camp_registrations' %>
+    <% end %>
   </div>
 </div>
 
