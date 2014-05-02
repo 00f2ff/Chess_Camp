@@ -6,7 +6,8 @@ class RegistrationsController < ApplicationController
   def new
     @registration = Registration.new
     @camp = Camp.find(params[:camp_id])
-    @student = @registration.student
+    @registration.camp_id = @camp.id
+    @eligibleStudents = Student.active.below_rating(@camp.curriculum.max_rating+1).at_or_above_rating(@camp.curriculum.min_rating)
   end
 
   def edit
@@ -15,7 +16,7 @@ class RegistrationsController < ApplicationController
   def create
     @registration = Registration.new(registration_params)
     if @registration.save
-      redirect_to @camp, notice: "The registration of #{@student.name} for #{@camp.name} was added to the system."
+      redirect_to @registration.camp, notice: "The registration of #{@registration.student.name} for #{@registration.camp.name} was added to the system."
     else
       render action: 'new'
     end

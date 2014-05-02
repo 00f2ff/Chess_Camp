@@ -19,3 +19,17 @@
 
 $(function(){ $(document).foundation(); });
 
+// Flash fade
+$(function() {
+   $('.alert-box').fadeIn('normal', function() {
+      $(this).delay(3700).fadeOut();
+   });
+});
+
+
+// Datepicker code
+$(function() {
+  $(".datepicker").datepicker({
+    format: 'mm/dd/YYYY'
+  });
+});
