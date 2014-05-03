@@ -11,6 +11,9 @@
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @location.active ? "Yes" : "No" %><br /><br />
 
-
-<%= link_to "Edit this location", edit_location_path(@location), class: "button tiny radius" %>&nbsp;&nbsp;
-<%= link_to 'Destroy location', location_path(@location), data: { confirm: 'Are you sure you want to delete this location?' }, method: :delete, class: "button tiny radius alert" %>
+<% if can? :update, Location %>
+	<%= link_to "Edit this location", edit_location_path(@location), class: "button tiny radius" %>&nbsp;&nbsp;
+<% end %>
+<% if can? :destroy, Location %>
+	<%= link_to 'Destroy location', location_path(@location), data: { confirm: 'Are you sure you want to delete this location?' }, method: :delete, class: "button tiny radius alert" %>
+<% end %>

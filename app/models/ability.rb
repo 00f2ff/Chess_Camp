@@ -9,10 +9,14 @@ class Ability
         can :update, Instructor do |instructor|
             instructor.id == user.instructor_id
         end
+        can :read, Camp
+        can :read, Family
+        can :read, Location
+        can :read, Student
     else
-        can :read, :all
-        #can :read, Camp
-        # how do i allow instructor views?
+        can :read, Camp
+        can :read, Instructor
+        can :read, Location
     end
 
 

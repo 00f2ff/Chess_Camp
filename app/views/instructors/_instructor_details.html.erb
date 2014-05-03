@@ -1,19 +1,32 @@
 <h3>Instructor Details</h3><br />
+
+<!-- photo -->
+<% unless @instructor.picture_url.nil? %>
+	<strong>Name:&nbsp;&nbsp;</strong> 
+	  <%= image_tag @instructor.picture_url %><br /><br />
+<% end %>
+
 <strong>Name:&nbsp;&nbsp;</strong> 
   <%= @instructor.proper_name %><br /><br />
 
-<strong>Phone:&nbsp;&nbsp;</strong> 
-  <%= number_to_phone(@instructor.phone) %><br /><br />
+<!-- only admins/instructors whose page it is can see personal info for instructors -->
+<% if can? :update, Instructor %>
+	<strong>Phone:&nbsp;&nbsp;</strong> 
+	  <%= number_to_phone(@instructor.phone) %><br /><br />
 
-<strong>Email:&nbsp;&nbsp;</strong> 
-  <%= mail_to @instructor.email, @instructor.email, encode: "javascript" %><br /><br />
+	<strong>Email:&nbsp;&nbsp;</strong> 
+	  <%= mail_to @instructor.email, @instructor.email, encode: "javascript" %><br /><br />
 
-<strong>Active?&nbsp;&nbsp;</strong>
-  <%= @instructor.active ? "Yes" : "No" %><br /><br />
+	<strong>Active?&nbsp;&nbsp;</strong>
+	  <%= @instructor.active ? "Yes" : "No" %><br /><br />
+<% end %>
 
 <strong>Biography</strong><br />
   <%= @instructor.bio.nil? ? "N/A" : @instructor.bio %><br /><br />
 
-
-<%= link_to "Edit this instructor", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;
-<%= link_to 'Destroy instructor', instructor_path(@instructor), data: { confirm: 'Are you sure you want to permanently remove this instructor from the system?' }, method: :delete, class: "button tiny radius alert" %>
+<% if can? :update, Instructor %>
+	<%= link_to "Edit this instructor", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;
+<% end %>
+<% if can? :destroy, Instructor %>
+	<%= link_to 'Destroy instructor', instructor_path(@instructor), data: { confirm: 'Are you sure you want to permanently remove this instructor from the system?' }, method: :delete, class: "button tiny radius alert" %>
+<% end %>

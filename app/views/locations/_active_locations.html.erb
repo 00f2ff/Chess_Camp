@@ -1,23 +1,26 @@
-<h3>Active Locations</h3>
+<!-- only admins can update locations -->
+<% if can? :update, Location %>
+	<h3>Active Locations</h3>
 
-<table class="table">
-	<tr>
-		<th>Name</th>
-		<th>Address</th>
-		<th>Capacity</th>
-		<th></th>
-	</tr>
+	<table class="table">
+		<tr>
+			<th>Name</th>
+			<th>Address</th>
+			<th>Capacity</th>
+			<th></th>
+		</tr>
 
-<% @activeLocations.each do |loc| %>
-	<tr>
-		<td><%= link_to "#{loc.name}", location_path(loc) %></td>
-		<td><%= "#{loc.street_1} #{loc.street_2}, #{loc.city}, #{loc.state} #{loc.zip}" %></td>
-		<td><%= loc.max_capacity %></td>
-		<td><%= link_to 'Edit', edit_location_path(loc), class: "button tiny radius" %></td>
-	</tr>
+	<% @activeLocations.each do |loc| %>
+		<tr>
+			<td><%= link_to "#{loc.name}", location_path(loc) %></td>
+			<td><%= "#{loc.street_1} #{loc.street_2}, #{loc.city}, #{loc.state} #{loc.zip}" %></td>
+			<td><%= loc.max_capacity %></td>
+			<td><%= link_to 'Edit', edit_location_path(loc), class: "button tiny radius" %></td>
+		</tr>
+	<% end %>
+	</table>
+	<!-- Add the pagination using will_paginate gem -->
+	<span class="paginate">
+	<%= will_paginate @activeLocations, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+	</span>
 <% end %>
-</table>
-<!-- Add the pagination using will_paginate gem -->
-<span class="paginate">
-<%= will_paginate @activeLocations, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
-</span>
