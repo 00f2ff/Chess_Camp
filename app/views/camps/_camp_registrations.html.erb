@@ -4,6 +4,7 @@
 		<tr>
 			<th>Name</th>
 			<th>Rating</th>
+			<th>Age</th>
 			<th></th>
 		</tr>
 
@@ -11,6 +12,7 @@
 		<tr>
 			<td><%= link_to r.student.name, student_path(r.student) %></td>
 			<td><%= r.student.rating %></td>
+			<td><%= r.student.age %></td> <!-- age is listed for guests to see -->
 			<td>
 				<% if can? :update, Registration %>
 					<%= link_to(edit_registration_path(:camp_id => @camp.id), :method => :get, class: 'button tiny radius') do %>

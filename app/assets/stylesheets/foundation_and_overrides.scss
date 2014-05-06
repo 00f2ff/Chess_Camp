@@ -1244,3 +1244,12 @@ $topbar-link-padding: $topbar-height / 3 - 1;
 }
 
 @import 'foundation';
+
+#login {
+	text-align: right;
+	margin-right: 5px;
+}
+
+#log-link a {
+	font-weight: bold;
+}

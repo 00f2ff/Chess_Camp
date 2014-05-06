@@ -1,5 +1,14 @@
   <div class="contain-to-grid">
+    <div id="login">
+      <% if logged_in? %>
+        <br><%= current_user.instructor.proper_name %>, <%= current_user.role %>
+        <br><div id="log-link"><%= link_to 'Logout', logout_path %></div>
+      <% else %>
+        <div id="log-link"><%= link_to 'Login', login_path %></div>
+      <% end %>
+    </div>
     <nav class="top-bar" data-topbar>
+
       <ul class="title-area">
         <li class="name">
           <h1><%= link_to "Awesome Camp", home_path %></h1>
@@ -63,14 +72,7 @@
                 </ul>
               </li>
             <% end %>
-            <div id="login">
-              <% if logged_in? %>
-                <br><%= current_user.instructor.proper_name %>
-                <br><%= link_to 'Logout', logout_path %>
-              <% else %>
-                <%= link_to 'Login', login_path %>
-              <% end %>
-            </div>
+            
           </ul>
         </section>
     </nav>
