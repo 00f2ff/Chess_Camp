@@ -3,7 +3,7 @@
 		<legend><%= controller.action_name.capitalize %> Registration</legend>
 		<!-- association uses entity, not key -->
 		<%= f.association :camp %>
-		<%= f.association :student, collection: @eligibleStudents %>
+		<%= f.association :student, collection: @eligible_students %>
 		<%= f.input :payment_status, :collection => [['Deposit','deposit'],['Full','full']], as: :radio_buttons %>
 		<%= f.input :points_earned %>
 	</fieldset>

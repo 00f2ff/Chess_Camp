@@ -10,7 +10,7 @@
 			<th></th>
 		</tr>
 
-	<% @activeLocations.each do |loc| %>
+	<% @active_locations.each do |loc| %>
 		<tr>
 			<td><%= link_to "#{loc.name}", location_path(loc) %></td>
 			<td><%= "#{loc.street_1} #{loc.street_2}, #{loc.city}, #{loc.state} #{loc.zip}" %></td>
@@ -21,6 +21,6 @@
 	</table>
 	<!-- Add the pagination using will_paginate gem -->
 	<span class="paginate">
-	<%= will_paginate @activeLocations, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+	<%= will_paginate @active_locations, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
 	</span>
 <% end %>

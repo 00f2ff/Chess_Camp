@@ -5,29 +5,25 @@ class Ability
     user ||= User.new
     if user.role? :admin
         can :manage, :all
-    elsif user.role? :instructor
+    elsif user.role? :instructor 
         can :update, Instructor do |instructor|
             instructor.id == user.instructor_id
         end
+        can :update, User do |u|
+            user.id == u.id
+        end
+        can :read, Instructor
         can :read, Camp
         can :read, Family
         can :read, Location
         can :read, Student do |student|
-            i_camps = instructor.camps.map(&:id)
-            s_camps = student.camps.map(&:id)
-            m = "no"
-            # instructor can view students they teach camps for
-            for a in i_camps
-                for b in s_camps
-                    if a == b
-                        m = "yes"
-                    end
-                end
-            end
-            m == "yes"
+            # instructor can only view students who they are teaching
+            user.instructor.camps.map{|c| c.students.map(&:id)}.flatten.include?(student.id)
         end
     else
-        can :read, Camp
+        can :read, Camp do |camp|
+            Camp.upcoming.to_a.map(&:id).include?(camp.id)
+        end # make it this specific?
         can :read, Instructor
         can :read, Location
     end

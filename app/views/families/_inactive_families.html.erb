@@ -1,4 +1,4 @@
-<% if @inactiveFamilies.empty? %>
+<% if @inactive_families.empty? %>
 	<!-- his styling: -->
 	<div class="panel clearfix">
 		<h5><em>There are no inactive families</em></h5>
@@ -7,7 +7,7 @@
 	<div class="panel clearfix"> <!-- unnecessary if above? -->
 		<h5>Inactive Families</h5>
 		<ul class="side-nav">
-			<% @inactiveFamilies.each do |family| %>
+			<% @inactive_families.each do |family| %>
 				<li><%= link_to "#{family.family_name}", family_path(family) %></li>
 			<% end %>
 		</ul>

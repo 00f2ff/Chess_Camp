@@ -4,12 +4,12 @@ class FamiliesController < ApplicationController
   authorize_resource
   
   def index
-    @activeFamilies = Family.active.alphabetical.paginate(:page => params[:page]).per_page(10)
-    @inactiveFamilies = Family.inactive.alphabetical.paginate(:page => params[:page]).per_page(10)
+    @active_families = Family.active.alphabetical.paginate(:page => params[:page]).per_page(10)
+    @inactive_families = Family.inactive.alphabetical.paginate(:page => params[:page]).per_page(10)
   end
 
   def show
-    @familyStudents = @family.students.alphabetical.to_a
+    @family_students = @family.students.alphabetical.to_a
   end
 
   def new

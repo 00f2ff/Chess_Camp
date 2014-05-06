@@ -4,14 +4,14 @@ class StudentsController < ApplicationController
   authorize_resource
   
   def index
-    @activeStudents = Student.active.alphabetical.paginate(:page => params[:page]).per_page(10)
-    @inactiveStudents = Student.inactive.alphabetical.paginate(:page => params[:page]).per_page(10)
+    @active_students = Student.active.alphabetical.paginate(:page => params[:page]).per_page(10)
+    @inactive_students = Student.inactive.alphabetical.paginate(:page => params[:page]).per_page(10)
   end
 
   def show
     @family = @student.family
-    @upcomingCamps = @student.camps.active.upcoming.chronological
-    @pastCamps = @student.camps.active.past.chronological
+    @upcoming_camps = @student.camps.active.upcoming.chronological
+    @past_camps = @student.camps.active.past.chronological
   end
 
   def new

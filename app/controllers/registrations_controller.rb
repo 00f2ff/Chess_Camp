@@ -7,7 +7,7 @@ class RegistrationsController < ApplicationController
     @registration = Registration.new
     @camp = Camp.find(params[:camp_id])
     @registration.camp_id = @camp.id
-    @eligibleStudents = Student.active.below_rating(@camp.curriculum.max_rating+1).at_or_above_rating(@camp.curriculum.min_rating)
+    @eligible_students = Student.active.below_rating(@camp.curriculum.max_rating+1).at_or_above_rating(@camp.curriculum.min_rating)
   end
 
   def edit

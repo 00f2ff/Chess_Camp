@@ -13,11 +13,14 @@
 			<td><%= r.student.rating %></td>
 			<td>
 				<% if can? :update, Registration %>
-					<%= link_to(edit_registration_path(:camp_id => @camp.id), :method => :get, class: 'button tiny radius') %>
+					<%= link_to(edit_registration_path(:camp_id => @camp.id), :method => :get, class: 'button tiny radius') do %>
+					Edit
+					<% end %>
 				<% end %>
 			</td>
 		<tr>
 	<% end %>
+	</table>
 
 <% else %>
 	<div class="panel clearfix">
