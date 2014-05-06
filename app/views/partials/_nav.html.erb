@@ -1,7 +1,8 @@
   <div class="contain-to-grid">
     <div id="login">
       <% if logged_in? %>
-        <br><%= current_user.instructor.proper_name %>, <%= current_user.role %>
+        <br><%= current_user.instructor.proper_name %>
+        <!-- indicate role with dashboard -->
         <br><div id="log-link"><%= link_to 'Logout', logout_path %></div>
       <% else %>
         <div id="log-link"><%= link_to 'Login', login_path %></div>
