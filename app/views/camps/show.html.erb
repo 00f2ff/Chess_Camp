@@ -12,15 +12,7 @@
     <!-- SIDEBAR CONTENT GOES HERE -->
     <!-- Everyone can see who teaches which camps -->
     <%= render partial: 'camp_instructors' %>
-    <!-- guests can only see pre-registration lists for upcoming camps -->
-    <% if @upcoming_camps.include? @camp %>
-      <%= render partial: 'camp_registrations' %>
-    <% else %>
-    <!-- only admins can see this information for past camps -->
-      <% if can? :update, Camp %>
-        <%= render partial: 'camp_registrations' %>
-      <% end %>
-    <% end %>
+    <%= render partial: 'camp_registrations' %>
   </div>
 </div>
 

@@ -12,7 +12,20 @@ class Ability
         can :read, Camp
         can :read, Family
         can :read, Location
-        can :read, Student
+        can :read, Student do |student|
+            i_camps = instructor.camps.map(&:id)
+            s_camps = student.camps.map(&:id)
+            m = "no"
+            # instructor can view students they teach camps for
+            for a in i_camps
+                for b in s_camps
+                    if a == b
+                        m = "yes"
+                    end
+                end
+            end
+            m == "yes"
+        end
     else
         can :read, Camp
         can :read, Instructor

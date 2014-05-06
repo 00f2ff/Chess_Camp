@@ -30,7 +30,7 @@ class LocationsController < ApplicationController
 
   def update
     if @location.update(location_params)
-      redirect_to @location, notice: "The location #{@location.name} was revised in the system."
+      redirect_to @location, notice: "#{@location.name} location was revised in the system."
     else
       render action: 'edit'
     end
@@ -38,7 +38,7 @@ class LocationsController < ApplicationController
 
   def destroy
     @location.destroy
-    redirect_to locations_url, notice: "The location #{@location.name} was removed from the system."
+    redirect_to locations_url, notice: "#{@location.name} location was removed from the system."
   end
 
   private

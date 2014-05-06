@@ -19,6 +19,15 @@
 
 	<strong>Active?&nbsp;&nbsp;</strong>
 	  <%= @instructor.active ? "Yes" : "No" %><br /><br />
+
+	<% unless @instructor.user.nil? %>
+		<strong>Username:&nbsp;&nbsp;</strong>
+			<%= @instructor.user.username %><br /><br />
+
+		<strong>Role:&nbsp;&nbsp;</strong>
+			<%= @instructor.user.role %><br /><br />
+	<% end %>
+
 <% end %>
 
 <strong>Biography</strong><br />
