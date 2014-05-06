@@ -19,6 +19,7 @@ class Ability
         can :read, Student do |student|
             # instructor can only view students who they are teaching
             user.instructor.camps.map{|c| c.students.map(&:id)}.flatten.include?(student.id)
+            # flattening a 2D array into a 1D
         end
     else
         can :read, Camp do |camp|

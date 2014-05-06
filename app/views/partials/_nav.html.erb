@@ -5,65 +5,73 @@
           <h1><%= link_to "Awesome Camp", home_path %></h1>
         </li>
       </ul>
-      <% if current_user && current_user.role == 'admin' %>
+      
         <section class="top-bar-section">
           <ul class="left">
-            <!-- options for curriculums -->
-            <li class="has-dropdown">
-              <%= link_to "Curriculums", curriculums_path %>
-              <ul class="dropdown">
-                <li><%= link_to "List Curriculums", curriculums_path %></li>
-                <li><%= link_to "Add a Curriculum", new_curriculum_path %></li>
-              </ul>
-            </li>
+            <% if current_user && current_user.role == 'admin' %>
+              <!-- options for curriculums -->
+              <li class="has-dropdown">
+                <%= link_to "Curriculums", curriculums_path %>
+                <ul class="dropdown">
+                  <li><%= link_to "List Curriculums", curriculums_path %></li>
+                  <li><%= link_to "Add a Curriculum", new_curriculum_path %></li>
+                </ul>
+              </li>
 
-            <!-- options for camps -->
-            <li class="has-dropdown">
-              <%= link_to "Camps", camps_path %>
-              <ul class="dropdown">
-                <li><%= link_to "List Camps", camps_path %></li>
-                <li><%= link_to "Add a Camp", new_camp_path %></li>
-              </ul>
-            </li>
+              <!-- options for camps -->
+              <li class="has-dropdown">
+                <%= link_to "Camps", camps_path %>
+                <ul class="dropdown">
+                  <li><%= link_to "List Camps", camps_path %></li>
+                  <li><%= link_to "Add a Camp", new_camp_path %></li>
+                </ul>
+              </li>
 
-            <!-- options for locations -->
-            <li class="has-dropdown">
-              <%= link_to "Locations", locations_path %>
-              <ul class="dropdown">
-                <li><%= link_to "List Locations", locations_path %></li>
-                <li><%= link_to "Add a Location", new_location_path %></li>
-              </ul>
-            </li>
+              <!-- options for locations -->
+              <li class="has-dropdown">
+                <%= link_to "Locations", locations_path %>
+                <ul class="dropdown">
+                  <li><%= link_to "List Locations", locations_path %></li>
+                  <li><%= link_to "Add a Location", new_location_path %></li>
+                </ul>
+              </li>
 
-            <!-- options for instructors -->
-            <li class="has-dropdown">
-              <%= link_to "Instructors", instructors_path %>
-              <ul class="dropdown">
-                <li><%= link_to "List Instructors", instructors_path %></li>
-                <li><%= link_to "Add an Instructor", new_instructor_path %></li>
-              </ul>
-            </li>
+              <!-- options for instructors -->
+              <li class="has-dropdown">
+                <%= link_to "Instructors", instructors_path %>
+                <ul class="dropdown">
+                  <li><%= link_to "List Instructors", instructors_path %></li>
+                  <li><%= link_to "Add an Instructor", new_instructor_path %></li>
+                </ul>
+              </li>
 
-            <!-- options for families -->
-            <li class="has-dropdown">
-              <%= link_to "Families", families_path %>
-              <ul class="dropdown">
-                <li><%= link_to "List Families", families_path %></li>
-                <li><%= link_to "Add a Family", new_family_path %></li>
-              </ul>
-            </li>
+              <!-- options for families -->
+              <li class="has-dropdown">
+                <%= link_to "Families", families_path %>
+                <ul class="dropdown">
+                  <li><%= link_to "List Families", families_path %></li>
+                  <li><%= link_to "Add a Family", new_family_path %></li>
+                </ul>
+              </li>
 
-            <!-- options for students -->
-            <li class="has-dropdown">
-              <%= link_to "Students", students_path %>
-              <ul class="dropdown">
-                <li><%= link_to "List Students", students_path %></li>
-                <li><%= link_to "Add a Student", new_student_path %></li>
-              </ul>
-            </li>
+              <!-- options for students -->
+              <li class="has-dropdown">
+                <%= link_to "Students", students_path %>
+                <ul class="dropdown">
+                  <li><%= link_to "List Students", students_path %></li>
+                  <li><%= link_to "Add a Student", new_student_path %></li>
+                </ul>
+              </li>
+            <% end %>
+            <div id="login">
+              <% if logged_in? %>
+                <br><%= current_user.instructor.proper_name %>
+                <br><%= link_to 'Logout', logout_path %>
+              <% else %>
+                <%= link_to 'Login', login_path %>
+              <% end %>
+            </div>
           </ul>
         </section>
-      <% end %>
-      
     </nav>
   </div>
