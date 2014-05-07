@@ -11,7 +11,7 @@
 					<li><%= "#{r.student.name} has paid $#{@camp.cost}" %></li>
 				<% end %>
 			</ul>
-			<strong>Total Payments Received: </strong><%= "$#{@registrations_full.size * @camp.cost}" %>
+			<strong>Total Payments Received: </strong><%= total_payments(@registrations_full.size, @camp.cost, 'full') %>
 		</div>
 	<% else %>
 		<div class="panel clearfix">
@@ -28,7 +28,7 @@
 					<li><%= "#{r.student.name} owes $#{@camp.cost - 50}" %></li>
 				<% end %>
 			</ul>
-			<strong>Total Balances Due: </strong><%= "$#{@registrations_deposit.size * (@camp.cost - 50)}" %>
+			<strong>Total Balances Due: </strong><%= total_payments(@registrations_deposit.size, @camp.cost, 'deposit') %>
 		</div>
 	<% else %>
 		<div class="panel clearfix">

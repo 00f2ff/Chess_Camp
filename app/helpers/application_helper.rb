@@ -5,19 +5,15 @@ module ApplicationHelper
 		status == 'full' ? "$0" : "$#{cost-50}"
 	end
 
-	# calculate total payments for year report
+	# calculate total payments for year/camp reports
 	def total_payments(size, cost, status)
 		status == 'full' ? "$#{size*cost}" : "$#{size*(cost-50)}"
-	end
-
-	def sum_total_payments
 	end
 
 	# for use in camp registration form
 	def students_eligible_for_camp(camp)
 		# all rating-eligible students - those already registered
 		eligible = Student.active.below_rating(camp.curriculum.max_rating+1).at_or_above_rating(camp.curriculum.min_rating) - camp.students 
-		return eligible
 	end
 
 end

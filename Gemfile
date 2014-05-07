@@ -65,6 +65,9 @@ gem 'font-awesome-sass-rails', '3.0.2.2'
 # for datepicker and other pretty formatting things
 gem 'jquery-ui-rails', '4.1.1'
 
+# for dates
+gem 'time_date_helpers', '0.0.2'
+
 # Additional gems that are very useful in Rails development
 group :development do
   gem 'quiet_assets'

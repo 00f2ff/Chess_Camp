@@ -1,12 +1,12 @@
 <!--** how do I write an unless without repeating the whole thing? -->
-<h5>Instructors Teaching More than 3 Camps</h5>
+<h5>Instructors Teaching More than 4 Camps</h5>
 <table class="table">
 	<tr>
 		<th>Name</th>
 		<th>Camps</th>
 	</tr>
 <% @instructors.each do |i| %>
-	<% if i.camps.size > 3 %>
+	<% if i.camps.size > 4 %>
 		<tr>
 			<td><%= link_to i.name, instructor_path(i) %></td>
 			<td align="center"><%= i.camps.size %></td>
