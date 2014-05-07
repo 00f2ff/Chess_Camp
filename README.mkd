@@ -18,3 +18,5 @@ Instructions for what needs to be done in this phase of the project can be found
 Special Additions:
 
 + Every time the guest homepage is refreshed it shows a new chess quote (randomized function)
+
+

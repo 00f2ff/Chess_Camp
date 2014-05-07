@@ -1,1 +1,19 @@
 <h2>Welcome, <%= current_user.instructor.first_name %></h2>
+
+<%= render partial: 'reports' %>
+<div class="row">
+	<div class="small-8 columns">
+		<%= render partial: 'instructors' %>
+	</div>
+
+	<div class="small-4 columns">
+		<%= render partial: 'upcoming_camps' %>
+	</div>
+</div>
+
+
+
+
+
+
+<i class="fa fa-times"></i>

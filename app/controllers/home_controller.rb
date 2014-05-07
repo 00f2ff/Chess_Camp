@@ -23,7 +23,8 @@ class HomeController < ApplicationController
       "Emanuel Lasker, World Chess Champion from 1894-1921",
       "GM Nigel Short",
       "David Letterman"]
-    @upcoming_camps = Camp.upcoming.active.chronological.paginate(:page => params[:page]).per_page(10)
+    @upcoming_camps = Camp.active.upcoming.chronological.paginate(:page => params[:page]).per_page(10)
+    @instructors = Instructor.alphabetical.paginate(:page => params[:page]).per_page(10)
   end
 
   def about

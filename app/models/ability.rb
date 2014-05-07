@@ -23,7 +23,7 @@ class Ability
         end
     else
         can :read, Camp do |camp|
-            Camp.upcoming.to_a.map(&:id).include?(camp.id)
+            Camp.active.upcoming.to_a.map(&:id).include?(camp.id)
         end # make it this specific?
         can :read, Instructor
         can :read, Location

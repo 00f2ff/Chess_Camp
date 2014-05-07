@@ -1,0 +1,31 @@
+<h4>Instructors</h4>
+<table class="table">
+	<tr>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Phone</th>
+		<th></th>
+	</tr>
+<% @instructors.each do |instructor| %>
+	<tr>
+		<td><%= link_to instructor.name, instructor_path(instructor) %></td>
+		<td><%= mail_to instructor.email, instructor.email, encode: "javascript" %></td>
+		<td><%= number_to_phone(instructor.phone) %></td>
+		<td>
+			<%= link_to edit_instructor_path(instructor), class: "button tiny radius" do %>
+				<% if instructor.active %>
+					<i class="fa fa-check-circle-o"></i>&nbsp;Active
+				<% else %>
+					<i class="fa fa-ban"></i>&nbsp;Inactive
+				<% end %>
+			 <!-- ***is there a way to make this instructor inactive when you press the button? -->
+			<% end %>
+		</td>
+	</tr>
+<% end %>
+</table>
+<span class="paginate">
+<%= will_paginate @instructors, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
+			
+			

@@ -1252,4 +1252,9 @@ $topbar-link-padding: $topbar-height / 3 - 1;
 
 #log-link a {
 	font-weight: bold;
+	margin-right: 5px;
+}
+
+.simple_form label {
+	text-align: left;
 }

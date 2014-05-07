@@ -1,13 +1,13 @@
 <h4>Upcoming Camps</h4>
-
-<table class="table">
+<table class="table" style="margin-top:31px;"> <!-- shhhh -->
   <tr>
-    <th width="260">Name</th>
-    <th width="120">Start On</th>
-    <th width="120">Time</th>
+    <th>Name</th>
+    <th>Start On</th>
+    <th>Time</th>
+    <th>Registrations</th>
     <th></th>
   </tr>
-<% if current_user %>
+<% if current_user && current_user.role == 'instructor' %>
   <% @upcoming_camps.each do |camp| %>
     <!-- make sure instructors can only see the camps they teach -->
     <% if camp.instructors.include?(current_user.instructor) %>
@@ -15,6 +15,7 @@
         <td><%= link_to camp.name, camp_path(camp) %></td>
         <td align="center"><%= camp.start_date.strftime('%m/%d/%y') %></td>
         <td align="center"><%= camp.time_slot == "am" ? "Morning" : "Afternoon" %></td>
+        <td align="center"><%= camp.registrations.size %></td>
       </tr>
     <% end %>
   <% end %>
@@ -25,12 +26,13 @@
       <td><%= link_to camp.name, camp_path(camp) %></td>
       <td align="center"><%= camp.start_date.strftime('%m/%d/%y') %></td>
       <td align="center"><%= camp.time_slot == "am" ? "Morning" : "Afternoon" %></td>
+      <td align="center"><%= camp.registrations.size %></td>
     </tr>
   <% end %>
 <% end %>
 </table>
 <!-- don't paginate for instructors -->
-<% unless current_user %>
+<% unless current_user.role == 'instructor' %>
   <span class="paginate">
   <%= will_paginate @upcoming_camps, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
   </span>

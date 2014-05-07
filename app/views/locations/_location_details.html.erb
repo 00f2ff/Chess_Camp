@@ -5,13 +5,13 @@
 <strong>Address:&nbsp;&nbsp;</strong>
 	<%= "#{@location.street_1} #{@location.street_2}, #{@location.city}, #{@location.state} #{@location.zip}" %><br /><br />
 
-<strong>Maximum Capacity:&nbsp;&nbsp;</strong>
-	<%= @location.max_capacity %><br /><br />
+<% if can? :update, Location %> <!-- guests and instructors can see name and address -->
+	<strong>Maximum Capacity:&nbsp;&nbsp;</strong>
+		<%= @location.max_capacity %><br /><br />
 
-<strong>Active?&nbsp;&nbsp;</strong>
-  <%= @location.active ? "Yes" : "No" %><br /><br />
+	<strong>Active?&nbsp;&nbsp;</strong>
+	  <%= @location.active ? "Yes" : "No" %><br /><br />
 
-<% if can? :update, Location %>
 	<%= link_to "Edit this location", edit_location_path(@location), class: "button tiny radius" %>&nbsp;&nbsp;
 <% end %>
 <% if can? :destroy, Location %>
