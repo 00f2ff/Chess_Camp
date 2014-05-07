@@ -4,7 +4,7 @@
     <th>Name</th>
     <th>Start On</th>
     <th>Time</th>
-    <th>Registrations</th>
+    <th>Full?</th>
     <th></th>
   </tr>
 <% if current_user && current_user.role == 'instructor' %>
@@ -15,7 +15,7 @@
         <td><%= link_to camp.name, camp_path(camp) %></td>
         <td align="center"><%= camp.start_date.strftime('%m/%d/%y') %></td>
         <td align="center"><%= camp.time_slot == "am" ? "Morning" : "Afternoon" %></td>
-        <td align="center"><%= camp.registrations.size %></td>
+        <td align="center"><%= camp.registrations.size == camp.max_students ? "Yes" : "No" %></td>
       </tr>
     <% end %>
   <% end %>
@@ -26,13 +26,13 @@
       <td><%= link_to camp.name, camp_path(camp) %></td>
       <td align="center"><%= camp.start_date.strftime('%m/%d/%y') %></td>
       <td align="center"><%= camp.time_slot == "am" ? "Morning" : "Afternoon" %></td>
-      <td align="center"><%= camp.registrations.size %></td>
+      <td align="center"><%= camp.registrations.size == camp.max_students ? "Yes" : "No" %></td>
     </tr>
   <% end %>
 <% end %>
 </table>
 <!-- don't paginate for instructors -->
-<% unless current_user.role == 'instructor' %>
+<% unless current_user && current_user.role == 'instructor' %>
   <span class="paginate">
   <%= will_paginate @upcoming_camps, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
   </span>

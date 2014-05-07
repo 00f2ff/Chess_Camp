@@ -20,7 +20,9 @@ Special Additions:
 + Every time the guest homepage is refreshed it shows a new chess quote (randomized function)
 
 + Admins can see balance due for each student registered for a camp by going to that camp's page
-+ Go to camp / family pages for reports. Aggregate financial report is on admin dashboard
++ Family payment report can be accessed through a family's detail page
++ Aggregate financial report is on admin dashboard
++ Camp payment report can be accessed through the dashboard or through a camp's detail page
 + Family payment report only shows payments for the current year
 
 

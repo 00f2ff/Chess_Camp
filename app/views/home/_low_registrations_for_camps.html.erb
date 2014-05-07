@@ -1,0 +1,27 @@
+<!--** how do I write an unless without repeating the whole thing? -->
+<h5>Unfilled Camps</h5>
+<table class="table">
+	<tr>
+		<th>Camp</th>
+		<th>Start Date</th>
+		<th>Registrations</th>
+		<th>Capacity</th>
+		<th>Filled</th>
+		<th>Payment Report</th>
+	</tr>
+<% @upcoming_camps.each do |c| %>
+	<% if (c.registrations.size*100 / c.max_students).round < 100 %>
+		<tr>
+			<td><%= link_to c.name, camp_path(c) %></td>
+			<td><%= c.start_date.strftime("%m/%d/%Y") %></td>
+			<td align="center"><%= c.registrations.size %></td>
+			<td align="center"><%= c.max_students %></td>
+			<td align="center"><%= "#{(c.registrations.size*100 / c.max_students).round}%" %></td>
+			<td><%= link_to 'Report', camp_payment_report_path(c), class: "button tiny alert radius" %></td>
+		</tr>
+	<% end %>
+<% end %>
+</table>
+<span class="paginate">
+<%= will_paginate @upcoming_camps, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>

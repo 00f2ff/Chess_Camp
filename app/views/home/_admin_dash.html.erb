@@ -1,12 +1,21 @@
 <h2>Welcome, <%= current_user.instructor.first_name %></h2>
 
-<%= link_to 'Generate Payment Report', year_payment_report_path, class: "button tiny radius" %>
+<%= link_to 'Annual Payment Report', year_payment_report_path, class: "button tiny radius" %>
 <div class="row">
-	<div class="small-8 columns">
-		<%= render partial: 'instructors' %>
+	<h3>Instructors</h3>
+	<div class="small-6 columns">
+		<%= render partial: 'no_camps_for_instructors' %>
 	</div>
-
-	<div class="small-4 columns">
-		<%= render partial: 'upcoming_camps' %>
+	<div class="small-6 columns">
+		<%= render partial: 'many_camps_for_instructors' %>
 	</div>
 </div>
+
+<h3>Camps</h3>
+<%= render partial: 'low_registrations_for_camps' %>
+<div class="under">
+	<%= render partial: 'low_instructors_for_camps' %>
+</div>
+
+
+

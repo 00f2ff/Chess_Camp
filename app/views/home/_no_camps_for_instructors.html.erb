@@ -1,0 +1,11 @@
+<!--** how do I write an unless without repeating the whole thing? -->
+<h5>Instructors Teaching No Camps</h5>
+<div class="panel clearfix">
+	<ul>
+		<% @instructors.each do |i| %>
+			<% if i.camps.size > 1 %>
+				<li><%= link_to i.name, instructor_path(i) %></li>
+			<% end %>
+		<% end %>
+	</ul>
+</div>
