@@ -41,6 +41,12 @@ class FamiliesController < ApplicationController
     redirect_to families_url, notice: "#{@family.family_name} family was removed from the system."
   end
 
+  # special method for payment report
+  def family_payment_report
+    @family = Family.find(params[:id])
+    @family_students = @family.students.alphabetical.to_a
+  end
+
   private
     def set_family
       @family = Family.find(params[:id])

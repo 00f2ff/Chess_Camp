@@ -14,12 +14,12 @@
 
 	<% @registrations.each do |r| %>
 		<tr>
-			<td><%= link_to r.student.name, student_path(r.student) %></td>
-			<td><%= r.student.rating %></td>
-			<td><%= r.student.age %></td> <!-- age is listed for guests to see -->
+			<td align="center"><%= link_to r.student.name, student_path(r.student) %></td>
+			<td align="center"><%= r.student.rating %></td>
+			<td align="center"><%= r.student.age %></td> <!-- age is listed for guests to see -->
 			<!-- list different balances due for different payment statuses -->
-			<td><%= r.payment_status == 'full' ? "$0" : "$#{r.camp.cost - 50}" %></td>
-			<td>
+			<td align="center"><%= r.payment_status == 'full' ? "$0" : "$#{r.camp.cost - 50}" %></td>
+			<td align="center">
 				<%= link_to(edit_registration_path(:camp_id => @camp.id), :method => :get, class: 'button tiny radius') do %>
 				Edit
 				<% end %>			
@@ -34,8 +34,8 @@
 	</div>
 <% end %>
 <br />
-<!-- send to registration form only if there are openings in the camp -->
-<% if can? :create, Registration && @camp.openings %>
+<!-- send to registration form -->
+<% if can? :create, Registration %>
 	<%= link_to(new_registration_path(:camp_id => @camp.id), :method => :get, class: 'button tiny radius') do %>
 	Add New Registration
 	<% end %>

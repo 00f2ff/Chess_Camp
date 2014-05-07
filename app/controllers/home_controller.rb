@@ -35,5 +35,11 @@ class HomeController < ApplicationController
 
   def privacy
   end
+
+  def year_payment_report
+    @camps = Camp.active.chronological.to_a
+    @received = 0
+    @due = 0
+  end
   
 end

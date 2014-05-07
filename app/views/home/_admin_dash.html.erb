@@ -1,6 +1,6 @@
 <h2>Welcome, <%= current_user.instructor.first_name %></h2>
 
-<%= render partial: 'reports' %>
+<%= link_to 'Generate Payment Report', year_payment_report_path, class: "button tiny radius" %>
 <div class="row">
 	<div class="small-8 columns">
 		<%= render partial: 'instructors' %>
@@ -10,10 +10,3 @@
 		<%= render partial: 'upcoming_camps' %>
 	</div>
 </div>
-
-
-
-
-
-
-<i class="fa fa-times"></i>

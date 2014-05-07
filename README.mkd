@@ -21,6 +21,7 @@ Special Additions:
 
 + Admins can see balance due for each student registered for a camp by going to that camp's page
 + Go to camp / family pages for reports. Aggregate financial report is on admin dashboard
++ Family payment report only shows payments for the current year
 
 
 

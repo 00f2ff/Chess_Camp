@@ -45,7 +45,7 @@ class CampsController < ApplicationController
   end
 
   # special method for admin report
-  def payment_report
+  def camp_payment_report
     @camp = Camp.find(params[:id])
     @registrations_full = @camp.registrations.by_student.paid
     @registrations_deposit = @camp.registrations.by_student.deposit_only

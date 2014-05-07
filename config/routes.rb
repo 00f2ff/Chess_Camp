@@ -26,7 +26,9 @@ ChessCamp::Application.routes.draw do
   get 'home/privacy', to: 'home#privacy', as: :privacy
 
   # report routes
-  get 'camps/:id/payment_report', to: 'camps#payment_report', as: :payment_report
+  get 'camps/:id/camp_payment_report', to: 'camps#camp_payment_report', as: :camp_payment_report
+  get 'families/:id/family_payment_report', to: 'families#family_payment_report', as: :family_payment_report
+  get 'home/year_payment_report', to: 'home#year_payment_report', as: :year_payment_report
 
   
   # set the root url
