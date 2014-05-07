@@ -2,5 +2,7 @@
 <%= f.input :last_name %>
 <%= f.input :phone, as: :string %>
 <%= f.input :email %>
-<%= f.input :active %>
+<% if current_user && current_user.role == 'admin' %>
+	<%= f.input :active %>
+<% end %>
 <%= f.input :bio, input_html: { rows: 6 } %>
