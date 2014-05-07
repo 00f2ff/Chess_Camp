@@ -34,8 +34,8 @@
 	</div>
 <% end %>
 <br />
-<!-- send to registration form -->
-<% if can? :update, Registration %>
+<!-- send to registration form only if there are openings in the camp -->
+<% if can? :create, Registration && @camp.openings %>
 	<%= link_to(new_registration_path(:camp_id => @camp.id), :method => :get, class: 'button tiny radius') do %>
 	Add New Registration
 	<% end %>
