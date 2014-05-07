@@ -1,13 +1,11 @@
 <% unless @registrations.empty? %>
 	<h5>Registrations <%= "(#{@registrations.size})" %></h5>
-	<table class="table">
+	<table>
 		<tr>
 			<th>Name</th>
 			<th>Rating</th>
 			<th>Age</th>
 		<% if current_user && current_user.role == 'admin' %>
-			<th>Balance Due</th>
-			<th></th>
 			<th></th> <!-- for destroy button -->
 		<% end %>
 		</tr>
@@ -15,17 +13,8 @@
 	<% @registrations.each do |r| %>
 		<tr>
 			<td align="center"><%= link_to r.student.name, student_path(r.student) %></td>
-			<td align="center"><%= r.student.rating %></td>
+			<td align="center"><%= r.student.rating == 0 ? "Unrated" : r.student.rating %></td>
 			<td align="center"><%= r.student.age %></td> <!-- age is listed for guests to see -->
-			<!-- list different balances due for different payment statuses -->
-			<% if current_user && current_user.role == 'admin' %>
-			<td align="center"><%= r.payment_status == 'full' ? "$0" : "$#{r.camp.cost - 50}" %></td>
-				<td align="center">
-					<%= link_to(edit_registration_path(:camp_id => @camp.id), :method => :get, class: 'button tiny radius') do %>
-					Edit
-					<% end %>			
-				</td>
-			<% end %>
 		<tr>
 	<% end %>
 	</table>
@@ -36,9 +25,4 @@
 	</div>
 <% end %>
 <br />
-<!-- send to registration form -->
-<% if can? :create, Registration %>
-	<%= link_to(new_registration_path(:camp_id => @camp.id), :method => :get, class: 'button tiny radius') do %>
-	Add New Registration
-	<% end %>
-<% end %>
+

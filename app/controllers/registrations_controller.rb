@@ -5,11 +5,6 @@ class RegistrationsController < ApplicationController
   
   def new
     @registration = Registration.new
-    @camp = Camp.find(params[:camp_id])
-    @registration.camp_id = @camp.id
-    #@student = Student.find(params[:student_id])
-    #@registration.student_id = @student.id
-    @eligible_students = Student.active.below_rating(@camp.curriculum.max_rating+1).at_or_above_rating(@camp.curriculum.min_rating)
   end
 
   def edit
@@ -26,7 +21,7 @@ class RegistrationsController < ApplicationController
 
   def update
     if @registration.update(registration_params)
-      redirect_to @camp, notice: "The registration of #{@student.name} for #{@camp.name} was revised in the system."
+      redirect_to @registration.camp, notice: "The registration of #{@student.name} for #{@camp.name} was revised in the system."
     else
       render action: 'edit'
     end
@@ -34,7 +29,7 @@ class RegistrationsController < ApplicationController
 
   def destroy
     @registration.destroy
-    redirect_to camps_url, notice: "The registration of #{@student.name} for #{@camp.name} was removed from the system."
+    redirect_to @registration.camp, notice: "The registration of #{@student.name} for #{@camp.name} was removed from the system."
   end
 
   private

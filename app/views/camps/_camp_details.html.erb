@@ -35,4 +35,6 @@
 <% end %>
 <% if current_user && current_user.role == 'admin' %>
   <%= link_to 'Generate Payment Report', camp_payment_report_path(@camp), class: "button tiny radius" %>
+
+  <%= render partial: 'registration_form' %>
 <% end %>

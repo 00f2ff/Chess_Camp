@@ -21,10 +21,10 @@
 						<td align="center"><%= r.payment_status %></td>
 						<% if r.payment_status == 'full' %>
 							<td align="center"><%= "$#{r.camp.cost}" %></td>
-							<td align="center"><%= "$0" %></td>
+							<td align="center"><%= family_payments(r.camp.cost, r.payment_status) %></td>
 						<% else %>
 							<td align="center"><%= "$50" %></td>
-							<td align="center"><%= "$#{r.camp.cost - 50}" %></td>
+							<td align="center"><%= family_payments(r.camp.cost, r.payment_status) %></td>
 						<% end %>
 					</tr>
 				<% end %>

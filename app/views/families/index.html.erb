@@ -1,5 +1,5 @@
 <!-- Only admins have control over families -->
-<% if can? :create, Family %>
+<% if current_user && current_user.role == 'admin' %>
 	<div class="row">
 		<div class="small-7 columns">
 			<!-- MAIN CONTENT GOES HERE -->

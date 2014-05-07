@@ -1,0 +1,13 @@
+<h4>Register a Student</h4>
+<%= simple_form_for @registration, html: { class: 'form-horizontal' } do |f| %>
+	<fieldset>
+		<%= f.input :camp_id, as: :hidden, input_html: {value: @camp.id} %>
+		<%= f.input :student_id, collection: students_eligible_for_camp(@camp) %>
+		<%= f.input :payment_status, :collection => [['Deposit','deposit'],['Full','full']], as: :radio_buttons %>
+		<%= f.input :points_earned %>
+	</fieldset>
+
+	<div class="form-actions">
+    <%= f.submit nil, class: 'button tiny radius' %>
+  </div>
+<% end %>
