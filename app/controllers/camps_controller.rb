@@ -44,6 +44,13 @@ class CampsController < ApplicationController
     redirect_to camps_url, notice: "#{@camp.name} camp on #{@camp.start_date.strftime('%m/%d/%y')} was removed from the system."
   end
 
+  # special method for admin report
+  def payment_report
+    @camp = Camp.find(params[:id])
+    @registrations_full = @camp.registrations.by_student.paid
+    @registrations_deposit = @camp.registrations.by_student.deposit_only
+  end
+
   private
     def set_camp
       @camp = Camp.find(params[:id])

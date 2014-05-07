@@ -19,4 +19,8 @@ Special Additions:
 
 + Every time the guest homepage is refreshed it shows a new chess quote (randomized function)
 
++ Admins can see balance due for each student registered for a camp by going to that camp's page
++ Go to camp / family pages for reports. Aggregate financial report is on admin dashboard
+
+
 

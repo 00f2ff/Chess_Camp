@@ -5,8 +5,11 @@
 			<th>Name</th>
 			<th>Rating</th>
 			<th>Age</th>
+		<% if current_user && current_user.role == 'admin' %>
+			<th>Balance Due</th>
 			<th></th>
 			<th></th> <!-- for destroy button -->
+		<% end %>
 		</tr>
 
 	<% @registrations.each do |r| %>
@@ -14,13 +17,12 @@
 			<td><%= link_to r.student.name, student_path(r.student) %></td>
 			<td><%= r.student.rating %></td>
 			<td><%= r.student.age %></td> <!-- age is listed for guests to see -->
+			<!-- list different balances due for different payment statuses -->
+			<td><%= r.payment_status == 'full' ? "$0" : "$#{r.camp.cost - 50}" %></td>
 			<td>
-				<% if can? :update, Registration %>
-					<%= link_to(edit_registration_path(:camp_id => @camp.id), :method => :get, class: 'button tiny radius') do %>
-					Edit
-					<% end %>
-				<% end %>
-				
+				<%= link_to(edit_registration_path(:camp_id => @camp.id), :method => :get, class: 'button tiny radius') do %>
+				Edit
+				<% end %>			
 			</td>
 		<tr>
 	<% end %>

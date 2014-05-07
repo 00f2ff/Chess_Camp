@@ -1,0 +1,38 @@
+<h2 style="text-align:center"><%= @camp.name %> Payment Report</h2>
+
+<!-- list the students who have paid and owe, and how much money -->
+
+<div class="small-6 columns">
+	<% unless @registrations_full.empty? %>
+		<div class="panel clearfix">
+			<h4>Payments Received</h4>
+			<ul>
+				<% @registrations_full.each do |r| %>
+					<li><%= "#{r.student.name} has paid $#{@camp.cost}" %></li>
+				<% end %>
+			</ul>
+			<strong>Total Payments Received: </strong><%= "$#{@registrations_full.size * @camp.cost}" %>
+		</div>
+	<% else %>
+		<div class="panel clearfix">
+			No payments received
+		</div>
+	<% end %>
+</div>
+<div class="small-6 columns">
+	<% unless @registrations_deposit.empty? %>
+		<div class="panel clearfix">
+			<h4>Balances Due</h4>
+			<ul>
+				<% @registrations_deposit.each do |r| %>
+					<li><%= "#{r.student.name} owes $#{@camp.cost - 50}" %></li>
+				<% end %>
+			</ul>
+			<strong>Total Balances Due: </strong><%= "$#{@registrations_deposit.size * (@camp.cost - 50)}" %>
+		</div>
+	<% else %>
+		<div class="panel clearfix">
+			No Balances Due
+		</div>
+	<% end %>
+</div>

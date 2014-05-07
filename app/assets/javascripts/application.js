@@ -19,6 +19,23 @@
 
 $(function(){ $(document).foundation(); });
 
+// Sticky footer js
+// rest a little above the bottom of the screen (10 px)
+// Thanks to Charles Smith for this -- http://foundation.zurb.com/forum/posts/629-sticky-footer
+$(window).bind("load", function () {
+  var footer = $("#footer");
+  var pos = footer.position();
+  var height = $(window).height();
+  height = height - pos.top;
+  height = height - footer.height();
+  gap = 10;
+  if (height > 0) {
+      footer.css({
+          'margin-top': (height - gap) + 'px'
+      });
+  }
+});
+
 // Flash fade
 $(function() {
    $('.alert-box').fadeIn('normal', function() {
