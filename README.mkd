@@ -25,5 +25,7 @@ Special Additions:
 + Camp payment report can be accessed through the dashboard or through a camp's detail page
 + Family payment report only shows payments for the current year
 
++ I wrote my own routes to get to the reports since the narrative implied they were meant to be printed out. I thought that creating a new web page would be easier for admins to print and read than trying to find it at the bottom of a camp/family page or dashboard.
+
 
 

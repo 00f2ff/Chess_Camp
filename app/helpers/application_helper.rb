@@ -7,7 +7,10 @@ module ApplicationHelper
 
 	# calculate total payments for year report
 	def total_payments(size, cost, status)
-		status == 'full' ? "$#{size*cost}" : "$#{size*cost-50}"
+		status == 'full' ? "$#{size*cost}" : "$#{size*(cost-50)}"
+	end
+
+	def sum_total_payments
 	end
 
 	# for use in camp registration form

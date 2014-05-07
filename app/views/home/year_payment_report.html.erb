@@ -15,10 +15,11 @@
 					<td><%= c.name %></td>
 					<td><%= c.start_date.strftime("%m/%d/%Y") %></td>
 					<!-- calculate total payments received value -->
-					<td align="center"><%= "$#{c.registrations.paid.size * c.cost}" %></td>
+					<td align="center"><%= total_payments(c.registrations.paid.size, c.cost, 'full') %></td>
+					<!-- I'm not using the total_payments method here and converting the previous td into a string because the instance variables treat the method like a string -->
 					<% @received += (c.registrations.paid.size * c.cost) %>
 					<!-- calculate total balance due value -->
-					<td align="center"><%= "$#{c.registrations.deposit_only.size * (c.cost - 50)}" %></td>
+					<td align="center"><%= total_payments(c.registrations.deposit_only.size, c.cost, 'deposit') %></td>
 					<% @due += (c.registrations.deposit_only.size * (c.cost - 50)) %>
 				</tr>
 			<% end %>
