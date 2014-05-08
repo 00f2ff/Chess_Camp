@@ -27,5 +27,9 @@ Special Additions:
 
 + I wrote my own routes to get to the reports since the narrative implied they were meant to be printed out. I thought that creating a new web page would be easier for admins to print and read than trying to find it at the bottom of a camp/family page or dashboard.
 
+- In the admin dashboard the pagination acts weirdly. For example, in 'Under-filled Camps' I'm pulling camps out of a much larger paginated list, and I think the reason there aren't that many results per page is because it paginates based on the original 10 results per page, and if 9 are taken away it doesn't update.
+  The same occurs with 'Under-staffed Camps'. If you're testing to see whether specific results are present, they probably are, you just need to go forward a few pages to find them.
+  A solution is to not paginate them at all, but I am despite this issue since I tried to design a more spatially concise dashboard.
 
++ The default instructor image has a sweet mustache. I am aware that not all instructors are men, however there is no gender attribute for instructor, so I can't change the default image based on gender. If I could I totally would though.
 

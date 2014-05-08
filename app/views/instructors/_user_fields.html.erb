@@ -1,8 +1,8 @@
 <%= f.input :username %>	
 <%= f.input :password %>
 <%= f.input :password_confirmation %>	
-<% if current_user && current_user.role == 'admin' %>
-	<%= f.input :active %>
-<!-- Only admins can change role -->
+<% if current_user && current_user.role == 'admin' %>	
+	<!-- Only admins can change role -->
 	<%= f.input :role, :collection => [['Administrator','admin'], ['Instructor','instructor']], :prompt => true %>
+	<%= f.input :active %>
 <% end %>

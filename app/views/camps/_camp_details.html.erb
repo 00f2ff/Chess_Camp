@@ -2,6 +2,11 @@
 <strong>Name:&nbsp;&nbsp;</strong> 
   <%= link_to @camp.name, curriculum_path(@camp.curriculum) %><br /><br />
 
+<% unless current_user %>
+  <strong>Description:&nbsp;&nbsp;</strong><br /><!-- description for guests -->
+   <%= @camp.curriculum.description %><br /><br />
+<% end %>
+
 <strong>Cost:&nbsp;&nbsp;</strong> 
   <%= number_to_currency(@camp.cost) %><br /><br />
 
