@@ -1,5 +1,5 @@
 class FamiliesController < ApplicationController
-  before_action :set_family, only: [:show, :edit, :update, :destroy]
+  before_action :set_family, only: [:show, :edit, :update, :destroy, :family_payment_report]
   # check authorization
   authorize_resource
   
@@ -43,7 +43,6 @@ class FamiliesController < ApplicationController
 
   # special method for payment report
   def family_payment_report
-    @family = Family.find(params[:id])
     @family_students = @family.students.alphabetical.to_a
   end
 

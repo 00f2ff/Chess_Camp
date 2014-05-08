@@ -13,13 +13,13 @@
           <%= instructor_form.simple_fields_for :user do |user_form| %>
             <%= render :partial => "user_fields", :locals => { :f => user_form } %>
           <% end %>
-        </fieldset> <!-- do I need an add user button? It would only be used if the user was destroyed -->
+      </fieldset> <!-- do I need an add user button? It would only be used if the user was destroyed -->
       </div>
     </div>
 
     <div class="form-actions">
-      <%= instructor_form.submit nil, class: 'button radius' %>
-      <%= link_to 'Back to List of Instructors', instructors_path, :class => 'button secondary radius' %>
+      <%= instructor_form.submit nil, class: 'button tiny radius' %>
+      <%= link_to 'Back to List of Instructors', instructors_path, :class => 'button tiny secondary radius' %>
     </div>
 
 <% end %>

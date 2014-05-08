@@ -1,5 +1,5 @@
 class CampsController < ApplicationController
-  before_action :set_camp, only: [:show, :edit, :update, :destroy]
+  before_action :set_camp, only: [:show, :edit, :update, :destroy, :camp_payment_report]
   # check authorization
   authorize_resource
   
@@ -46,7 +46,6 @@ class CampsController < ApplicationController
 
   # special method for admin report
   def camp_payment_report
-    @camp = Camp.find(params[:id])
     @registrations_full = @camp.registrations.by_student.paid
     @registrations_deposit = @camp.registrations.by_student.deposit_only
   end
