@@ -1,10 +1,10 @@
 <h3>Instructor Details</h3><br />
 
 <!-- photo -->
-<% if @instructor.picture_url.nil? %>
+<% if instructor.picture_url.nil? %>
 	<div id="in-picture"><%= image_tag 'stache_default.jpg' %></div><br /><br />
 <% else %>
-	<div id="in-picture"><%= image_tag @instructor.picture_url %></div><br /><br />
+	<div id="in-picture"><%= image_tag instructor.picture_url %></div><br /><br />
 <% end %>
 
 <strong>Name:&nbsp;&nbsp;</strong> 
