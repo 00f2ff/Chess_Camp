@@ -21,7 +21,7 @@ class RegistrationsController < ApplicationController
 
   def update
     if @registration.update(registration_params)
-      redirect_to @registration.camp, notice: "The registration of #{@student.name} for #{@camp.name} was revised in the system."
+      redirect_to @registration.camp, notice: "The registration of #{@registration.student.name} for #{@registration.camp.name} was revised in the system."
     else
       render action: 'edit'
     end
@@ -29,7 +29,9 @@ class RegistrationsController < ApplicationController
 
   def destroy
     @registration.destroy
-    redirect_to @registration.camp, notice: "The registration of #{@student.name} for #{@camp.name} was removed from the system."
+    @student = @registration.student
+    @camp = @registration.camp
+    redirect_to @camp, notice: "The registration of #{@registration.student.name} for #{@camp.name} was removed from the system."
   end
 
   private

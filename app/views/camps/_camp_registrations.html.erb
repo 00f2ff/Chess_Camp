@@ -15,6 +15,7 @@
 			<td align="center"><%= link_to r.student.name, student_path(r.student) %></td>
 			<td align="center"><%= r.student.rating == 0 ? "Unrated" : r.student.rating %></td>
 			<td align="center"><%= r.student.age %></td> <!-- age is listed for guests to see -->
+			<td><%= link_to 'Unregister', registration_path(r), data: { confirm: 'Are you sure you want to remove this registration?'}, method: :delete, class: 'button tiny radius alert' %></td>
 		<tr>
 	<% end %>
 	</table>

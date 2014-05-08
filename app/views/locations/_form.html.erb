@@ -1,18 +1,18 @@
 <%= simple_form_for(@location, html: { class: 'form-horizontal' }) do |f| %>
-
-	<h3><%= controller.action_name.capitalize %> Location</h3>
-	<%= f.input :name %>
-	<%= f.input :street_1 %>
-	<%= f.input :street_2 %>
-	<%= f.input :city %>
-	<%= f.input :state, collection: Location::STATES_LIST, prompt: "Select state..." %>
-	<%= f.input :zip %>
-	<%= f.input :max_capacity %>
-	<%= f.input :active %>
-
+	<fieldset>
+		<legend><%= controller.action_name.capitalize %> Location</legend>
+		<%= f.input :name %>
+		<%= f.input :street_1 %>
+		<%= f.input :street_2 %>
+		<%= f.input :city %>
+		<%= f.input :state, collection: Location::STATES_LIST, prompt: "Select state..." %>
+		<%= f.input :zip %>
+		<%= f.input :max_capacity %>
+		<%= f.input :active %>
+	</fieldset>
 	<div class="form-actions">
-    <%= f.submit nil, class: 'button radius' %>
-    <%= link_to 'Back to List of Locations', locations_path, :class => 'button secondary radius' %>
+    <%= f.submit nil, class: 'button tiny radius' %>
+    <%= link_to 'Back to List of Locations', locations_path, :class => 'button tiny secondary radius' %>
   </div>
 
 <% end %>

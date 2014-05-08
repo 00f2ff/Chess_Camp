@@ -1,10 +1,8 @@
 <% if @inactive_locations.empty? %>
-	<div class="panel clearfix">
-		<h5><em>There are no inactive locations</em></h5>
-	</div>
+	<div class="i-cont"><h3>No Inactive Locations</h3></div>
 <% else %>
-	<div class="panel clearfix"> <!-- unnecessary if above? -->
-		<h5>Inactive Locations</h5>
+	<div class="i-cont"><h3>Inactive Locations</h3></div>
+	<div class="panel clearfix">
 		<ul class="side-nav">
 			<% @inactive_locations.each do |location| %>
 				<li><%= link_to "#{location.name}", location_path(location) %></li>
