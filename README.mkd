@@ -31,5 +31,8 @@ Special Additions:
   The same occurs with 'Under-staffed Camps'. If you're testing to see whether specific results are present, they probably are, you just need to go forward a few pages to find them.
   A solution is to not paginate them at all, but I am despite this issue since I tried to design a more spatially concise dashboard.
 
++ Guests can go to a camp's page and see its curriculum description.
+
 + The default instructor image has a sweet mustache. I am aware that not all instructors are men, however there is no gender attribute for instructor, so I can't change the default image based on gender. If I could I totally would though.
+
 

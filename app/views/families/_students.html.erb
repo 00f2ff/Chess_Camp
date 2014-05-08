@@ -1,10 +1,6 @@
-<% if @family_students.empty? %>
-	<!-- his styling: -->
+<% unless @family_students.empty? %>
+	<h3>&nbsp;</h3>
 	<div class="panel clearfix">
-		<h5><em>This family has no students</em></h5>
-	</div>
-<% else %>
-	<div class="panel clearfix"> <!-- unnecessary if above? -->
 		<h5>Students</h5>
 		<ul class="side-nav">
 			<% @family_students.each do |student| %>
@@ -12,4 +8,9 @@
 			<% end %>
 		</ul>
 	</div>
+<% else %>
+	<div class="panel clearfix">
+		<h5><em>This family has no students</em></h5>
+	</div>
 <% end %>
+	
