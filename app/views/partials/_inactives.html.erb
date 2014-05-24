@@ -1,0 +1,24 @@
+<% unless inactive.empty? %>
+	<div class="i-cont"><h3>Inactive <%= "#{inactive_type}" %></h3></div>
+  <div class="panel clearfix">
+    <ul class="side-nav">
+      <% inactive.each do |i| %>
+      	<% if inactive_type == 'Curriculums' %>
+        	<li><%= link_to i.name, curriculum_path(i) %></li>
+        <% elsif inactive_type == 'Instructors' %>
+        	<li><%= link_to i.name, instructor_path(i) %></li>
+        <% elsif inactive_type == 'Families' %>
+        	<li><%= link_to "#{i.family_name}", family_path(i) %></li>
+        <% elsif inactive_type == 'Locations' %>
+        	<li><%= link_to "#{i.name}", location_path(i) %></li>
+        <% elsif inactive_type == 'Camps' %>
+        	<li><%= link_to i.name, camp_path(i) %></li>
+        <% elsif inactive_type == 'Students' %>
+        	<li><%= link_to "#{i.name}", student_path(i) %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+<% else %>
+	<div class="i-cont"><h3>No Inactive <%= "#{inactive_type}" %></h3></div>
+<% end %>

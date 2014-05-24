@@ -13,7 +13,7 @@
 
 		<div class="small-4 columns">
 			<!-- SIDEBAR CONTENT GOES HERE -->
-			<%= render :partial => "inactive_students" %>
+			<%= render partial: 'partials/inactives', locals: { inactive: @inactive_students, inactive_type: 'Students' } %>
 		</div>
 	</div>
 <% end %>

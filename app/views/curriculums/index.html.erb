@@ -14,7 +14,7 @@
 
     <div class="small-4 columns">
       <!-- SIDEBAR CONTENT GOES HERE -->
-      <%= render partial: 'inactive_curriculums' %>
+      <%= render partial: 'partials/inactives', locals: { inactive: @inactive_curriculums, inactive_type: 'Curriculums' } %>
     </div>
   </div>
 <% end %>

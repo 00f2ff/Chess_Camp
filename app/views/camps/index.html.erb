@@ -19,7 +19,7 @@
     <!-- SIDEBAR CONTENT GOES HERE -->
     <!-- Only admins can see inactive camps -->
     <% if can? :update, Camp %>
-      <%= render :partial => "inactive_camps" %>
+      <%= render partial: 'partials/inactives', locals: { inactive: @inactive_camps, inactive_type: 'Camps' } %>
     <% end %>
   </div>
 </div>

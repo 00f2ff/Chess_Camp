@@ -14,7 +14,7 @@
 
 		<div class="small-4 columns">
 			<!-- SIDEBAR CONTENT GOES HERE -->
-			<%= render :partial => "inactive_locations" %>
+			<%= render partial: 'partials/inactives', locals: { inactive: @inactive_locations, inactive_type: 'Locations' } %>
 		</div>
 	</div>
 <% end %>
