@@ -12,9 +12,9 @@
 
     <div class="small-4 columns">
       <!-- SIDEBAR CONTENT GOES HERE -->
-      <%= render :partial => "student_camps", locals: { status: "Upcoming", camps: @upcoming_camps } %>
+      <%= render :partial => "partials/sidebar_filler", locals: { side_info: @upcoming_camps, side_type: 'Upcoming Camps' } %>
       <p>&nbsp;</p>
-      <%= render :partial => "student_camps", locals: { status: "Past", camps: @past_camps } %>
+      <%= render :partial => "partials/sidebar_filler", locals: { side_info: @past_camps, side_type: 'Past Camps' } %>
     </div>
   </div>
 <% end %>

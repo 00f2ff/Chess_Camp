@@ -12,7 +12,8 @@
     <!-- SIDEBAR CONTENT GOES HERE -->
     <!-- Guests can't see what other camps an instructor teaches -->
     <% if can? :update, Instructor %>
-      <%= render partial: 'instructor_camps' %>
+      <%= render :partial => "partials/sidebar_filler", locals: { side_info: @upcoming_camps, side_type: 'Upcoming Taught' } %>
+      <%= render :partial => "partials/sidebar_filler", locals: { side_info: @past_camps, side_type: 'Past Taught' } %>
     <% end %>
   </div>
 </div>

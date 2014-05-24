@@ -11,7 +11,7 @@
   <div class="small-5 columns">
     <!-- SIDEBAR CONTENT GOES HERE -->
     <!-- Everyone can see who teaches which camps -->
-    <%= render partial: 'camp_instructors' %>
+    <%= render :partial => "partials/sidebar_filler", locals: { side_info: @instructors, side_type: 'Instructors' } %>
     <%= render partial: 'camp_registrations' %>
   </div>
 </div>

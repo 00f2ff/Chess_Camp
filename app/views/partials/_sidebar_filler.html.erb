@@ -1,0 +1,69 @@
+<% unless side_info.empty? %>
+  <h3>&nbsp;</h3>
+  <div class="panel clearfix">
+    <h5>
+      <!-- for camps -->
+      <% if side_type == 'Instructors' %>
+        Camp Instructors
+      <!-- for curriculums -->
+      <% elsif side_type == 'Camps' %>
+        Curriculum Used On:
+      <!-- for instructors -->
+      <% elsif side_type == 'Upcoming Taught' %>
+        Upcoming Camps
+      <!-- for instructors -->
+      <% elsif side_type == 'Past Taught' %>
+        Past Camps
+      <!-- for families -->
+      <% elsif side_type == 'Students' %>
+        Students
+      <!-- for students -->
+      <% elsif side_type == 'Upcoming Camps' || side_type == 'Past Camps' %>
+        <%= side_type %>
+      <% end %>
+    </h5>
+    <ul class="side-nav">
+      <% side_info.each do |i| %>
+        <% if side_type == 'Instructors' %>
+          <li><%= link_to i.name, instructor_path(i) %></li>
+        <% elsif side_type == 'Camps' %>
+          <li><%= link_to "#{i.start_date.strftime('%B %e, %Y')}", camp_path(i) %></li>
+        <% elsif side_type == 'Upcoming Taught' || side_type == 'Past Taught' %>
+          <li><%= link_to i.name, camp_path(i) %> (<%= i.start_date.strftime('%B %e, %Y') %>)</li>
+        <% elsif side_type == 'Students' %>
+          <li><%= link_to "#{i.name}", student_path(i) %></li>
+        <% elsif side_type == 'Upcoming Camps' || side_type == 'Past Camps' %>
+          <!-- different from instructor one due to cucumber tests -->
+          <li><%= link_to i.name, camp_path(i) %> (<%= "#{i.start_date.strftime("%m/%d/%y")}" %>)</li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+
+<% else %>
+  <h3>&nbsp;</h3>
+  <div class="panel clearfix">
+    <h5>
+      <!-- for camps -->
+      <% if side_type == 'Instructors' %>
+        No Instructors
+      <!-- for curriculums -->
+      <% elsif side_type == 'Camps' %>
+        Curriculum has not been used
+      <!-- for instructors -->
+      <% elsif side_type == 'Upcoming Taught' %>
+        No Upcoming Camps
+      <!-- for instructors -->
+      <% elsif side_type == 'Past Taught' %>
+        No Past Camps
+      <!-- for families -->
+      <% elsif side_type == 'Students' %>
+        This family has no students
+      <!-- for students -->
+      <% elsif side_type == 'Upcoming Camps' || side_type == 'Past Camps' %>
+        No <%= side_type %>
+      <% end %>
+    </h5>
+  </div>
+<% end %>
+<br /><br />
